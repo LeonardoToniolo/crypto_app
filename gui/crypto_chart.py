@@ -2,8 +2,12 @@ import matplotlib.pyplot as plt
 import mplfinance as mpf
 import threading
 import time
+import tkinter as tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 
 class CryptoChart:
+
     def __init__(self, parent):
         self.parent = parent
         self.figure, self.ax = plt.subplots()
@@ -11,6 +15,7 @@ class CryptoChart:
         self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
     def update_chart(self, symbol):
+
         def fetch_data():
             while True:
                 # Aqui você deve buscar os dados da criptomoeda em tempo real.
